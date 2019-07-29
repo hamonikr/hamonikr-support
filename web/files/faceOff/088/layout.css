@@ -1,0 +1,126 @@
+/* 전체 */
+#hkrme-logo { cursor: pointer; }
+
+.btsbtn ,
+#content .btsbtn .control-group {
+  background-color: rgb(175, 135, 232);
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.42857143;
+  margin-bottom: 0;
+  padding: 6px 12px;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  -moz-user-select: none;
+  -ms-touch-action: manipulation;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
+
+.btsinp {
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  color: #555;
+  display: block;
+  font-size: 14px;
+  line-height: 1.42857143;
+  margin-bottom: 10px;
+  padding: 6px 12px;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  width: calc(100% - 26px);
+}
+
+.default_btn{ 
+  font-size: 13px;
+  margin-right: 5px;
+  padding: 5px 25px;
+  width: 160px;
+}
+
+body { 
+  background-size: cover; 
+  background-image: url('/files/attach/images/65/065/34fb4dd5a6e4f681a45857cf53c3f5ae.png'); 
+/*  background-image: url('/files/attach/images/65/065/4cf8c2bce06dc564c9cb5e6cf2c5b00f.png'); */
+/*  background-image: url('/files/attach/images/65/065/f72ac199e57442eb177dd3418e3981d0.png'); */
+/*  background-image: url('/files/attach/images/65/065/0ca45cd3f367ab54853339d4204497a5.png'); */
+/*  background-image: url('/files/attach/images/65/065/9f98a10a13f3dc86f8a095890634d702.jpg'); */
+/*  background-image: url('/files/attach/images/65/065/72028220cc762d97bbfa68e558cb6e96.jpg'); */
+  overflow-x: hidden;
+  overflow-y: auto; 
+}
+.container .body { padding: 0; }
+.container tr { background-color: rgba(255,255,255,0.7) !important; }
+/*.header_wrap { display: none; }*/
+.header.main .side { display: none; }
+footer { display: none; }
+
+/* 메인페이지 */
+body > .container{ background-color: rgba(0,0,0,0); }
+
+/* 라이선스 구매 */
+.list_header { display: none; }
+#content.content { width: 1150px; }
+#itemlist .small.light.nuribtn { display: none; }
+#itemlist .search { display: none; }
+#itemlist .small.blue.nuribtn { width: 60px; }
+
+/* 장바구니 */
+#cartitems .cartStep { margin-bottom: 20px; }
+#cartitems .total-table th { display: none; }
+#cartitems .total-table td { display: none; }
+#cartitems .total-table th.total_price { display: table-cell; }
+#cartitems .total-table td.total_price { display: table-cell; }
+
+
+
+/****** xe css 수정 ******/
+/* 로그인 */
+.xm .signin {
+  border: 0;
+  border-radius: 10px;
+  box-shadow: none;
+}
+.xm .signin .submit {
+  position: inherit;
+  width: 100%;
+}
+.xm .signin #warning { padding-right: 15px; }
+.xm fieldset .control-group:last-child { padding: 0; }
+
+/* 회원가입 */
+#fo_insert_member { width: 600px; }
+
+.krzip-search.btn{
+  background-color: rgb(43, 193, 164);
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1.42857143;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    touch-action: manipulation;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    -moz-user-select: none;
+    -ms-touch-action: manipulation;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}

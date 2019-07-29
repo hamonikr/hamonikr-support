@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+	<grants />
+	<permissions>
+		<permission action="dispWidgetGenerateCode" target="manager" />
+		<permission action="dispWidgetGenerateCodeInPage" target="manager" />
+		<permission action="dispWidgetStyleGenerateCodeInPage" target="manager" />
+		<permission action="procWidgetGenerateCode" target="manager" />
+		<permission action="procWidgetStyleGenerateCodeInPage" target="manager" />
+		<permission action="procWidgetInsertDocument" target="manager" />
+		<permission action="procWidgetCopyDocument" target="manager" />
+		<permission action="procWidgetDeleteDocument" target="manager" />
+		<permission action="procWidgetGenerateCodeInPage" target="manager" />
+		<permission action="procWidgetGetColorsetList" target="manager" />
+		<permission action="procWidgetStyleExtraImageUpload" target="manager" />
+	</permissions>
+	<actions>
+		<action name="dispWidgetInfo" type="view" meta-noindex="true" />
+		<action name="dispWidgetGenerateCode" type="view" meta-noindex="true" />
+		<action name="dispWidgetGenerateCodeInPage" type="view" meta-noindex="true" />
+		<action name="dispWidgetStyleGenerateCodeInPage" type="view" meta-noindex="true" />
+		<action name="procWidgetGenerateCode" type="controller" />
+		<action name="procWidgetStyleGenerateCodeInPage" type="controller" />
+		<action name="procWidgetInsertDocument" type="controller" />
+		<action name="procWidgetCopyDocument" type="controller" />
+		<action name="procWidgetDeleteDocument" type="controller" />
+		<action name="procWidgetGenerateCodeInPage" type="controller" ruleset="generateCodeInPage" />
+		<action name="procWidgetGetColorsetList" type="controller" />
+		<action name="procWidgetStyleExtraImageUpload" type="controller" />
+
+		<!-- admin -->
+		<action name="dispWidgetAdminDownloadedList" type="view" admin_index="true" menu_name="installedWidget" menu_index="true" />
+		<action name="dispWidgetAdminAddContent" type="view" />
+		<action name="dispWidgetAdminGenerateCode" type="view" menu_name="installedWidget" />
+
+	</actions>
+	<menus>
+		<menu name="installedWidget">
+			<title xml:lang="en">Widgets</title>
+			<title xml:lang="ko">설치된 위젯</title>
+			<title xml:lang="zh-CN">Widgets</title>
+			<title xml:lang="jp">ウィジェット</title>
+			<title xml:lang="es">Widgets</title>
+			<title xml:lang="ru">Widgets</title>
+			<title xml:lang="fr">Widgets</title>
+			<title xml:lang="zh-TW">Widgets</title>
+			<title xml:lang="vi">Widgets</title>
+			<title xml:lang="mn">Widgets</title>
+			<title xml:lang="tr">Widgets</title>
+		</menu>
+	</menus>
+</module>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="UTF-8">
+		<title>하모니카ME 기술지원</title>
+		<link rel="stylesheet" href="default.css" type="text/css">
+		
+		<script type="text/javascript" src="https://pms.invesume.com:8443/s/2059c8753d85168188e9a882ed7e8f8c-T/-fxdwo4/710002/be09033ea7858348cd8d5cdeb793189a/2.0.30/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=ko-KR&collectorId=9ee16d30"></script>
+		<script type="text/javascript">
+		window.ATL_JQ_PAGE_PROPS =  {
+		"triggerFunction": function(showCollectorDialog) {
+			//Requires that jQuery is available! 
+			document.getElementById("request_support").addEventListener("click", function(e) {
+				e.preventDefault();
+				showCollectorDialog();
+			});
+		}};
+		</script>
+		<!--<script> require('./renderer.js'); </script>-->
+		<script type="text/javascript">
+			const {ipcRenderer} = require('electron');
+			const support_url = "https://support.hamonikr.org";
+			const support_val = "?support=HamoniKR-ME_Support";
+			const public_lice = "XXXXXXXXXXXXXXXXXXXXXXXXX";
+
+			// 라이선스 등록하기
+			function add_license(){
+				var license = document.getElementById('me_license').value;
+
+				// 검증
+				if(license.length != 25 || public_lice == license){
+					alert('잘못된 라이선스 입니다.');
+					return;
+				}
+
+				// 등록하기
+				var xhr = new XMLHttpRequest();
+				xhr.open('POST', support_url+'/fnt/add_license.php');
+				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+				xhr.onreadystatechange = function () {
+					if(xhr.readyState !== 4) return;
+						// readyState 4: 완료
+				  
+					if(xhr.status === 200) {
+						// status 200: 성공
+						var data = decodeURIComponent(xhr.responseText);
+						data = JSON.parse(data.split('[')[1].split(']')[0]);
+
+						var ck = data.success;
+						var msg = data.msg;
+						var end_date;
+
+                        if(msg.split(' : ').length > 0) {
+                            end_date = msg.split(':')[1];
+                            msg = msg.split(':')[0];
+                        }
+                        if(msg == -1) msg = '등록할 수 없습니다. 잠시뒤 다시 이용해 주시기 바랍니다.';
+                        if(msg == 1) msg = '등록이 완료되었습니다.\n만료일 : ' + end_date;
+                        if(msg == -2) msg = '잘못 입력하셨습니다.';
+                        if(msg == -3) msg = '유효하지 않은 라이선스 입니다.';
+                        if(msg == -4) msg = '이미 등록처리된 라이선스 입니다. 다른 라이선스를 입력해 주시기 바랍니다.';
+                        if(msg == -5) msg = '인증기간이 만료되었습니다.\n만료일 : ' + end_date;
+
+						alert(msg);
+
+						if(ck == 'true') {
+							// 라이선스 저장
+							ipcRenderer.send('fileData', license, () => { 
+								console.log("Event fileData sent."); 
+							});
+
+							location.reload();
+						}
+					} else {
+						console.log('에러: ' + xhr.status);
+					}
+				};
+
+				// 전송
+				xhr.send('license='+license);
+			}
+
+			// 라이선스 확인
+			function ck_license() {
+				// get lice
+				ipcRenderer.send('openFile', () => {
+					alert("Event sent."); 
+				});
+
+                ipcRenderer.on('undefined-dir', (event, msg) => {
+                    alert(msg);
+                    ipcRenderer.send('support-closed', () => {
+					    alert("Event sent."); 
+				    });
+                });
+
+				ipcRenderer.on('openFile-reply', (event, lice) => {
+					// 검증
+					if(lice.replace(/\n/g, "") == public_lice){
+						see_license_div();
+						return;
+					}
+
+					var xhr = new XMLHttpRequest();
+					xhr.open('POST', support_url+'/fnt/ck_license.php');
+					xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+					xhr.onreadystatechange = function () {
+						if(xhr.readyState !== 4) return;
+						// readyState 4: 완료
+
+						if(xhr.status === 200) {
+							// status 200: 성공
+							var data = decodeURIComponent(xhr.responseText);
+							data = JSON.parse(data.split('[')[1].split(']')[0]);
+
+							var ck = data.ck;
+							var end_date = data.end_date;
+							
+							if(ck == -1) {
+								alert('유효하지 않은 라이선스 입니다.');
+								see_license_div();
+							}else if(ck == 1) {
+								alert('사용기간이 만료된 라이선스 입니다.\n만료일 : ' + end_date);
+								see_license_div();
+							}else if(ck == 0) {
+								document.getElementById('support_app_view').src=support_url+support_val;
+								document.getElementById('havelicense').style.display='block';
+								document.getElementsByClassName('license_title')[0].innerHTML='기술지원';
+								document.getElementById('end_date').innerHTML='만료일 : ' + end_date;
+							}
+						} else {
+							console.log('에러: ' + xhr.status);
+						}
+					}
+					// 전송
+					xhr.send('license='+lice);
+				});
+			}
+
+			function see_license_div(){
+				document.getElementById('havelicense').remove();
+				document.getElementsByClassName('license_title')[0].innerHTML='라이선스 등록';
+				document.getElementById('nolicense').style.display='block';
+			}
+
+			document.addEventListener("DOMContentLoaded", function () {
+				document.removeEventListener("DOMContentLoaded", arguments.callee, false);
+				domReady();
+			}, false);
+
+			//DOM이 모두 로드 되었을 때 - $(document).ready(function(){ ... });
+			function domReady () {
+				// 페이지 로드
+				if(!navigator.onLine){
+					alert('인터넷을 사용할 수 없습니다.\n확인후 다시 시도해 주시기 바랍니다.');
+
+					// 앱 종료
+					ipcRenderer.send('support-closed', () => {
+						alert('인터넷을 사용할 수 없습니다.\n확인후 다시 시도해 주시기 바랍니다.');
+					});
+				}
+
+				// 라이선스 확인창 - 메인페이지에서만 나오도록
+				var xeview = document.querySelector("#support_app_view"),
+				observer = new MutationObserver((changes) => {
+					changes.forEach(change => {
+						if(change.attributeName.includes('src')){
+							var license_div = document.querySelector("#license_content");
+
+							if(xeview.src == support_url+'/'+support_val){
+								// 메인화면
+								if(license_div != null) license_div.style.display='block';
+							}else{
+								// 다른화면
+								if(license_div != null) license_div.style.display='none';
+							}
+						}
+					});
+				});
+				observer.observe(xeview, {attributes : true});
+
+
+				ck_license();	// 라이선스 확인
+			}
+		</script>
+	</head>
+
+    <body>
+        <div id="app"></div>
+        <div id="license_content">
+		<aside>
+			<div id="license_div">
+				<p id="end_date">미등록</p>
+
+				<h3 class="license_title">Loading...</h3>
+
+				<div id="nolicense">
+					<input id="me_license" name="me_license" placeholder="라이선스를 입력해 주세요" maxlength="25" type="text" />
+					<input class="btsbtn" id="add_license" onclick="add_license();" type="button" value="등록하기" />
+					<input class="btsbtn" onclick="javascript:location.href='https://hamonikr.org'" style="background-color: rgb(43, 193, 164);" type="button" value="커뮤니티에 질문하기" /><br/>
+					<span class="linkbtn" onclick="javascript:document.getElementById('support_app_view').src='https://support.hamonikr.org/product';">라이선스 구매</span>
+					<sapn>&nbsp; | &nbsp;</sapn>
+					<span class="linkbtn can_see_at_login" onclick="javascript:document.getElementById('support_app_view').src='https://support.hamonikr.org/billing_list'" style="text-align: left;">결제내역 확인</span>
+				</div>
+
+				<div id="havelicense">
+					<input class="btsbtn" id="request_support" type="button" value="기술지원 요청하기" />
+					<input class="btsbtn" onclick="javascript:location.href='https://hamonikr.org'" style="background-color: rgb(43, 193, 164);" type="button" value="커뮤니티에 질문하기" />
+					<span class="linkbtn" onclick="javascript:document.getElementById('support_app_view').src='https://support.hamonikr.org/product'">라이선스 구매</span>
+					<sapn>&nbsp; | &nbsp;</sapn>
+
+					<span class="linkbtn" onclick="javascript:document.getElementById('support_app_view').src='https://support.hamonikr.org/billing_list'">결제내역 확인</span>
+				</div>
+			</div>
+		</aside>
+	</div>
+
+	<webview id="support_app_view" src="https://support.hamonikr.org/?support=HamoniKR-ME_Support"></webview>
+    </body>
+</html>
