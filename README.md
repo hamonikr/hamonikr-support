@@ -1,4 +1,3 @@
 # hamonikr-support
-
-app : electron application
-web : XE
+app : electron application<br/>
+web : XE<br/>
