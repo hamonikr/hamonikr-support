@@ -16,6 +16,26 @@
 4. 두 명의 다른 개발자가 사인 오프 한 후 또는 요청한 경우 풀 요청을 병합 할 수 있습니다. 
    그렇게 할 수있는 권한이없는 경우, 두 번째 검토 자에게 이를 병합하도록 요청할 수 있습니다.
 
+## 소개
+
+하모니카 개발팀은 bitbucket, github 2가지 저장소를 사용합니다.
+
+릴리즈 하기 전에는 공개되지 않은 저장소에서 개발을 진행하고 릴리즈를 결정한 이후에는 깃헙을 사용합니다.
+
+깃헙에 공개된 프로젝트는 누구나 참여 가능하며, 하모니카 OS 코어 개발팀은 팀 리더의 승인이 필요합니다.
+
+소스코드 저장소
+
+하모니카 OS 저장소 : http://pms.invesume.com:7990/projects/HAMOS/repos/hamonikr-me/browse 하모니카 프로젝트 깃헙 : https://github.com/ivsteam 하모니카 코어 팀 저장소 : http://pms.invesume.com:7990/projects/HOS
+
+메일링 리스트
+
+토론을 위한 메일링 리스트는 2가지가 있습니다.
+
+하모니카 사용자 누구나 하고 싶은 이야기는 나누세요
+
+누구나 의견을 게재할 수 있는 하모니카 메일링 리스트 : hamonikr@googlegroups.com (https://groups.google.com/forum/#!forum/hamonikr) 개발팀간 커뮤니케이션 메일링리스트 (그룹관리자 승인필요) : hamonikr-packages@googlegroups.com (https://groups.google.com/forum/#!forum/hamonikr-packages)
+
 ## 행동 강령
 
 ### 우리의 서약
@@ -82,5 +102,3 @@
 행동 강령을 따르지 않거나 시행하지 않는 프로젝트 관리자
 신앙은 다른 사람이 결정한 일시적 또는 영구적 영향에 직면 할 수 있습니다
 프로젝트 리더
-
-### 기여
