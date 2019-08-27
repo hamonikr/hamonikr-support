@@ -14,7 +14,7 @@
 3. 예제 파일의 버전 번호와 README.md를 새 버전으로 늘리십시오.
    풀 요청이 나타납니다.
 4. 두 명의 다른 개발자가 사인 오프 한 후 또는 요청한 경우 풀 요청을 병합 할 수 있습니다. 
-   그렇게 할 수있는 권한이없는 경우, 두 번째 검토 자에게이를 병합하도록 요청할 수 있습니다.
+   그렇게 할 수있는 권한이없는 경우, 두 번째 검토 자에게 이를 병합하도록 요청할 수 있습니다.
 
 ## 행동 강령
 
@@ -84,9 +84,3 @@
 프로젝트 리더
 
 ### 기여
-
-이 행동 규범은 [Contributor Covenant] [홈페이지], 버전 1.4,
-[http://contributor-covenant.org/version/1/4]에서 사용 가능 [version]
-
-[홈페이지] : http://contributor-covenant.org
-[버전] : http://contributor-covenant.org/version/1/4/
