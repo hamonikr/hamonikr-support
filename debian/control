@@ -1,0 +1,13 @@
+Source: hamonikr-support
+Section: utils
+Priority: optional
+Maintainer: HamoniKR <pkg@hamonikr.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+
+Package: hamonikr-support
+Architecture: all
+Depends: zenity,
+         ${misc:Depends},
+Description: SVG file resize tool for HamoniKR
+ SVG 파일의 사이즈를 변환하는 프로그램.

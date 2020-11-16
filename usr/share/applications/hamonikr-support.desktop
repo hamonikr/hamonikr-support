@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=hamonikr-support
+Name[ko]=하모니카 기술지원
+Exec=/opt/hamonikr-support/hamonikr-support %U
+Terminal=false
+Type=Application
+Icon=hamonikr-support
+StartupWMClass=hamonikr-support
+Encoding=UTF-8
+Comment=HamoniKR Support
+Comment[ko]=하모니카 사용자를 위한 기술지원 서비스
+MimeType=x-scheme-handler/hamonikr-support;
+Categories=Utility;
