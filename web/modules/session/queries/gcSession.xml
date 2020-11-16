@@ -1,8 +1,0 @@
-<query id="gcSession" action="delete">
-    <tables>
-        <table name="session" />
-    </tables>
-    <conditions>
-        <condition operation="less" column="expired" default="curdate()" notnull="notnull" />
-    </conditions>
-</query>

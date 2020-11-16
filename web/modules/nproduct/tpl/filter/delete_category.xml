@@ -1,8 +1,0 @@
-<filter name="delete_category" module="nproduct" act="procNproductDeleteCategory" confirm_msg_code="confirm_delete">
-    <response callback_func="completeDeleteCategory">
-        <tag name="error" />
-        <tag name="message" />
-        <tag name="node_id" />
-        <tag name="parent_node" />
-    </response>
-</filter>

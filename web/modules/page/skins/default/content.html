@@ -1,7 +1,0 @@
-<block cond="$oDocument">
-<h1 cond="$module_info->display_title != 'hide'">{$oDocument->getTitle()|noescape}</h1>
-{$oDocument->getContent($module_info->display_popupmenu != 'hide')|noescape}
-</block>
-<block cond="!$oDocument">
-{$lang->none_content}
-</block>

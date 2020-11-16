@@ -1,3 +1,0 @@
-<?php
-if(!defined('__XE__')) { exit(); }
-return 'a:5:{s:20:"display_cart_buttons";O:8:"stdClass":3:{s:10:"module_srl";s:3:"157";s:4:"name";s:20:"display_cart_buttons";s:5:"value";s:1:"N";}s:10:"list_style";O:8:"stdClass":3:{s:10:"module_srl";s:3:"157";s:4:"name";s:10:"list_style";s:5:"value";s:4:"list";}s:19:"list_thumbnail_type";O:8:"stdClass":3:{s:10:"module_srl";s:3:"157";s:4:"name";s:19:"list_thumbnail_type";s:5:"value";s:4:"crop";}s:16:"recommenditem_on";O:8:"stdClass":3:{s:10:"module_srl";s:3:"157";s:4:"name";s:16:"recommenditem_on";s:5:"value";s:1:"N";}s:14:"thumbnail_type";O:8:"stdClass":3:{s:10:"module_srl";s:3:"157";s:4:"name";s:14:"thumbnail_type";s:5:"value";s:4:"crop";}}';
