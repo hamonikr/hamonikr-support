@@ -1,3 +1,13 @@
+hamonikr-support (1.0.1) entjin; urgency=medium
+
+  * Update debian/control
+   - Add Descriptions
+  * Add debian/links
+  * Removed debian/postrm
+  * Update debian/postinst
+
+ -- HamoniKR <pkg@hamonikr.org>  Mon, 16 Nov 2020 15:42:58 +0900
+
 hamonikr-support (1.0.0) jin; urgency=medium
 
   * Initial release

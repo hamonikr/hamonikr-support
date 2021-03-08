@@ -9,5 +9,5 @@ Package: hamonikr-support
 Architecture: all
 Depends: zenity,
          ${misc:Depends},
-Description: SVG file resize tool for HamoniKR
- SVG 파일의 사이즈를 변환하는 프로그램.
+Description: Technial Support tool for HamoniKR
+ 하모니카 기술지원 프로그램.
