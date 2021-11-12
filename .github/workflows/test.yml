@@ -1,19 +1,16 @@
-name: Python license check action
+name: Update copyright year(s) in license file
 
 on:
-  push:
-    branches:
-      - master
-
-env:
-  DEP_PATH: requirements.txt
+  schedule:
+    - cron: "* * * * *" # 03:00 AM on January 1
 
 jobs:
-  build:
+  update-license-year:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out master
-        uses: actions/checkout@master
-
-      - name: Python License Check 
-        uses: aufdenpunkt/python-license-check-action@main
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: FantasticFiasco/action-update-license-year@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
